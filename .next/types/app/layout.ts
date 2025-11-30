@@ -1,4 +1,4 @@
-// File: /Users/alsabakhan/Desktop/coding_workspace/GS_blog_webapp/app/layout.tsx
+// File: /Users/alsabakhan/dev/github/singh-project/gs-blog-project/app/layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
