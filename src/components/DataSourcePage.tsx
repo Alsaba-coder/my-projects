@@ -60,22 +60,22 @@ const DataSourcePage: React.FC<DataSourcePageProps> = ({ onCensusData }) => {
 
   return (
     <div className="flex-1 overflow-auto bg-gray-50">
-      <header className="bg-white border-b border-gray-200 px-8 py-6">
-        <div className="flex items-center space-x-4">
-          <a href="/" className="text-gray-600 hover:text-gray-900">
+      <header className="bg-white border-b border-gray-200 px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 gap-3">
+          <a href="/" className="text-gray-600 hover:text-gray-900 inline-flex items-center w-9 h-9 justify-center rounded-full border border-gray-200">
             <ArrowLeft className="w-5 h-5" />
           </a>
           <div>
-            <h1 className="text-2xl font-semibold text-gray-900">Census Data Explorer</h1>
-            <p className="text-gray-500 mt-1">Access industry-specific insights and analytics</p>
+            <h1 className="text-xl sm:text-2xl font-semibold text-gray-900">Census Data Explorer</h1>
+            <p className="text-sm text-gray-500 mt-1">Access industry-specific insights and analytics</p>
           </div>
         </div>
       </header>
 
-      <main className="px-8 py-6">
-        <div className="max-w-4xl mx-auto">
+      <main className="px-4 sm:px-6 lg:px-8 py-6">
+        <div className="max-w-4xl mx-auto space-y-8">
           {/* Data Categories */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
             {dataCategories.map((category, index) => (
               <div key={index} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
                 <div className="flex items-center space-x-4">
@@ -92,7 +92,7 @@ const DataSourcePage: React.FC<DataSourcePageProps> = ({ onCensusData }) => {
           </div>
 
           {/* Data Connection */}
-          <div className="bg-white rounded-lg shadow-sm p-8">
+          <div className="bg-white rounded-lg shadow-sm p-6 sm:p-8">
             <div className="flex items-center justify-center mb-6">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
                 <Database className="w-8 h-8 text-blue-600" />
@@ -111,7 +111,7 @@ const DataSourcePage: React.FC<DataSourcePageProps> = ({ onCensusData }) => {
             )}
             <div className="space-y-4">
               <button 
-                className="w-full py-3 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-colors"
+                className="w-full py-3 px-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium transition-colors text-sm sm:text-base"
                 onClick={handleConnectAPI}
                 disabled={loading}
               >
@@ -126,7 +126,7 @@ const DataSourcePage: React.FC<DataSourcePageProps> = ({ onCensusData }) => {
           </div>
 
           {/* Features Preview */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
             {[
               {
                 title: "AI Predictions",

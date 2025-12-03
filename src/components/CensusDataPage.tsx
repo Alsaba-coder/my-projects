@@ -205,27 +205,27 @@ const CensusDataPage: React.FC<CensusDataProps> = ({ data, onBack }) => {
 
   return (
     <div className="flex-1 overflow-auto bg-gray-50">
-      <header className="bg-white border-b border-gray-200 px-8 py-6">
-        <div className="flex items-center justify-between">
+      <header className="bg-white border-b border-gray-200 px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div className="flex items-center space-x-4">
-            <button onClick={onBack} className="text-gray-600 hover:text-gray-900">
+            <button onClick={onBack} className="text-gray-600 hover:text-gray-900 rounded-full border border-gray-200 p-2">
               <ArrowLeft className="w-5 h-5" />
             </button>
             <div>
-              <h1 className="text-2xl font-semibold text-gray-900">Census Analytics</h1>
-              <p className="text-gray-500 mt-1">2020 Decennial Census Housing Insights</p>
+              <h1 className="text-xl sm:text-2xl font-semibold text-gray-900">Census Analytics</h1>
+              <p className="text-sm text-gray-500 mt-1">2020 Decennial Census Housing Insights</p>
             </div>
           </div>
-          <div className="flex items-center space-x-4">
-            <button className="flex items-center space-x-2 px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
+          <div className="flex flex-wrap items-center gap-3">
+            <button className="flex items-center justify-center space-x-2 px-3 sm:px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 text-sm">
               <Filter className="w-4 h-4" />
               <span>Filter</span>
             </button>
-            <button className="flex items-center space-x-2 px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
+            <button className="flex items-center justify-center space-x-2 px-3 sm:px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 text-sm">
               <Share2 className="w-4 h-4" />
               <span>Share</span>
             </button>
-            <button className="flex items-center space-x-2 px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+            <button className="flex items-center justify-center space-x-2 px-3 sm:px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 text-sm">
               <Download className="w-4 h-4" />
               <span>Export</span>
             </button>
@@ -233,11 +233,11 @@ const CensusDataPage: React.FC<CensusDataProps> = ({ data, onBack }) => {
         </div>
       </header>
 
-      <main className="px-8 py-6">
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-lg p-6 mb-8">
+      <main className="px-4 sm:px-6 lg:px-8 py-6 space-y-8">
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl shadow-lg p-4 sm:p-6">
           <div className="mb-4">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">Housing Market Analysis</h2>
-            <p className="text-gray-700 leading-relaxed font-['Georgia'] italic">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Housing Market Analysis</h2>
+            <p className="text-sm sm:text-base text-gray-700 leading-relaxed font-['Georgia'] italic">
               Explore comprehensive housing statistics for {selectedState ? selectedState.name : 'any state'} 
               {selectedCity ? ` and ${selectedCity.name}` : ''}. This analysis provides detailed insights into 
               housing occupancy and vacancy patterns, helping you understand the local real estate market dynamics 
@@ -245,8 +245,8 @@ const CensusDataPage: React.FC<CensusDataProps> = ({ data, onBack }) => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-white rounded-lg p-4 shadow-sm">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <div className="bg-white rounded-lg p-4 sm:p-5 shadow-sm">
               <div className="flex items-center mb-2">
                 <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2">
                   <span className="text-blue-600 font-bold text-sm">1</span>
@@ -311,7 +311,7 @@ const CensusDataPage: React.FC<CensusDataProps> = ({ data, onBack }) => {
               )}
             </div>
 
-            <div className="bg-white rounded-lg p-4 shadow-sm">
+            <div className="bg-white rounded-lg p-4 sm:p-5 shadow-sm">
               <div className="flex items-center mb-2">
                 <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center mr-2">
                   <span className="text-blue-600 font-bold text-sm">2</span>
@@ -407,9 +407,9 @@ const CensusDataPage: React.FC<CensusDataProps> = ({ data, onBack }) => {
 
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           {censusData.length > 0 && (
-            <div className="p-6 border-b border-gray-200">
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Housing Statistics</h3>
-              <p className="font-['Georgia'] text-gray-600">
+            <div className="p-4 sm:p-6 border-b border-gray-200">
+              <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2">Housing Statistics</h3>
+              <p className="text-sm sm:text-base font-['Georgia'] text-gray-600">
                 Below are the current housing statistics for {selectedCity?.name}, {selectedState?.name}, 
                 showing the distribution of occupied and vacant housing units. This data provides valuable 
                 insights into the local housing market conditions and availability.
@@ -424,13 +424,13 @@ const CensusDataPage: React.FC<CensusDataProps> = ({ data, onBack }) => {
             </div>
           ) : rows.length > 0 ? (
             <div className="overflow-x-auto">
-              <table className="w-full">
+              <table className="w-full min-w-[640px]">
                 <thead className="bg-gray-50">
                   <tr>
                     {mappedHeaders.map((header: string, index: number) => (
                       <th
                         key={index}
-                        className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-200"
+                        className="px-4 sm:px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider border-b border-gray-200"
                         title={header}
                       >
                         {columnMappings[header]}
@@ -444,7 +444,7 @@ const CensusDataPage: React.FC<CensusDataProps> = ({ data, onBack }) => {
                       {row.map((cell: any, cellIndex: number) => (
                         <td
                           key={cellIndex}
-                          className="px-6 py-4 text-sm text-gray-900 font-medium"
+                          className="px-4 sm:px-6 py-3 text-xs sm:text-sm text-gray-900 font-medium"
                         >
                           {formatCell(cell)}
                         </td>

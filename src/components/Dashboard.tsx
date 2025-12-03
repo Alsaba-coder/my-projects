@@ -39,14 +39,14 @@ const Dashboard: React.FC<DashboardProps> = ({ onDataSourceClick }) => {
 
   return (
     <div className="flex-1 overflow-auto bg-gray-50">
-      <header className="bg-white border-b border-gray-200 px-8 py-6">
-        <h1 className="text-2xl font-semibold text-gray-900">Census Analytics Platform</h1>
-        <p className="text-gray-500 mt-1">AI-Powered Insights for Data-Driven Decisions</p>
+      <header className="bg-white border-b border-gray-200 px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+        <h1 className="text-xl sm:text-2xl font-semibold text-gray-900">Census Analytics Platform</h1>
+        <p className="text-sm sm:text-base text-gray-500 mt-1">AI-Powered Insights for Data-Driven Decisions</p>
       </header>
 
-      <main className="px-8 py-6">
+      <main className="px-4 sm:px-6 lg:px-8 py-6 space-y-8">
         {/* Key Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-6">
           <StatCard
             title="Active Projects"
             value="1,243"
@@ -78,10 +78,10 @@ const Dashboard: React.FC<DashboardProps> = ({ onDataSourceClick }) => {
         </div>
 
         {/* Industry Sections */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
           {industries.map((industry, index) => (
             <div key={index} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-              <div className="flex items-center justify-between mb-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
                 <div className="flex items-center space-x-3">
                   <div className={`w-10 h-10 bg-${industry.color}-50 rounded-lg flex items-center justify-center`}>
                     <industry.icon className={`w-6 h-6 text-${industry.color}-600`} />
@@ -93,12 +93,12 @@ const Dashboard: React.FC<DashboardProps> = ({ onDataSourceClick }) => {
                 </div>
                 <button 
                   onClick={onDataSourceClick}
-                  className={`text-${industry.color}-600 hover:text-${industry.color}-700`}
+                  className={`text-${industry.color}-600 hover:text-${industry.color}-700 self-start sm:self-auto`}
                 >
                   <ArrowUpRight className="w-5 h-5" />
                 </button>
               </div>
-              <div className="grid grid-cols-3 gap-4 mt-4">
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
                 {industry.metrics.map((metric, idx) => (
                   <div key={idx} className="bg-gray-50 rounded-lg p-3">
                     <p className="text-sm font-medium text-gray-600">{metric}</p>
@@ -110,8 +110,8 @@ const Dashboard: React.FC<DashboardProps> = ({ onDataSourceClick }) => {
         </div>
 
         {/* Recent Insights */}
-        <div className="bg-white rounded-lg shadow-sm p-6">
-          <div className="flex items-center justify-between mb-6">
+        <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
             <h2 className="text-lg font-semibold text-gray-900">Recent AI Insights</h2>
             <button className="text-blue-600 hover:text-blue-700 font-medium text-sm">
               View All
@@ -144,7 +144,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onDataSourceClick }) => {
             ].map((insight, index) => (
               <div
                 key={index}
-                className="flex items-center justify-between p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
+                className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-4 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors"
                 onClick={onDataSourceClick}
               >
                 <div className="flex items-center space-x-4">
@@ -181,11 +181,11 @@ interface StatCardProps {
 
 const StatCard: React.FC<StatCardProps> = ({ title, value, change, icon: Icon, color }) => {
   return (
-    <div className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-      <div className="flex items-center justify-between">
+    <div className="bg-white rounded-lg shadow-sm p-4 sm:p-6 hover:shadow-md transition-shadow">
+      <div className="flex items-center justify-between gap-4">
         <div>
-          <p className="text-sm font-medium text-gray-600">{title}</p>
-          <p className="text-2xl font-semibold text-gray-900 mt-1">{value}</p>
+          <p className="text-xs sm:text-sm font-medium text-gray-600">{title}</p>
+          <p className="text-xl sm:text-2xl font-semibold text-gray-900 mt-1">{value}</p>
         </div>
         <div className={`w-12 h-12 bg-${color}-50 rounded-lg flex items-center justify-center`}>
           <Icon className={`w-6 h-6 text-${color}-600`} />
